@@ -24,6 +24,9 @@ public class FortuneManager {
     }
 
     public double getProbabilityThreshold(Material material) {
+        if (isMaterialBlacklisted(material)) {
+            return -1;
+        }
         Double probabilityThreshold = probabilityThresholds.get(material);
         return probabilityThreshold != null ? probabilityThreshold : defaultProbabilityThreshold;
     }
