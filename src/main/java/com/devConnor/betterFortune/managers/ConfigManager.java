@@ -60,7 +60,6 @@ public class ConfigManager {
             Material material = loadMaterialFromString(key.toUpperCase());
             if (material != null) {
                 double probability = section.getDouble(key);
-                System.out.println(probability);
                 if (probability > 0 && probability <= 1) {
                     probabilities.put(material, probability);
                 } else {
@@ -177,7 +176,6 @@ public class ConfigManager {
             betterFortune.saveConfig();
             return true;
         } catch (Exception e) {
-            System.out.println(e);
             sendWarningToConsole("Could not unignore [" + material.name() + "]");
             return false;
         }
@@ -214,5 +212,4 @@ public class ConfigManager {
 
         return section;
     }
-
 }
